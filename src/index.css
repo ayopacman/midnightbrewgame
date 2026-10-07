@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Quicksand', system-ui, -apple-system, sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: #FFF5F7;
+  }
+}
+
+/* Floating Sakura Blossom Petals Animation */
+.sakura-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 25;
+  background-image: 
+    radial-gradient(ellipse at 30% 20%, rgba(244, 114, 182, 0.4) 3px, transparent 6px),
+    radial-gradient(ellipse at 70% 60%, rgba(232, 74, 116, 0.3) 4px, transparent 8px),
+    radial-gradient(ellipse at 50% 80%, rgba(251, 113, 133, 0.35) 3.5px, transparent 7px);
+  background-size: 160px 220px, 200px 280px, 140px 180px;
+  animation: sakuraDrift 12s linear infinite;
+}
+
+@keyframes sakuraDrift {
+  0% {
+    background-position: 0px 0px, 0px 0px, 0px 0px;
+  }
+  50% {
+    background-position: 40px 300px, -30px 350px, 25px 250px;
+  }
+  100% {
+    background-position: 80px 600px, -60px 700px, 50px 500px;
+  }
+}
+
+/* Raindrop Window Animation for Cozy Rain Atmosphere */
+.rain-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 50% 50%, rgba(244, 114, 182, 0.5) 1.5px, transparent 2px),
+                    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.6) 1px, transparent 1.5px),
+                    radial-gradient(circle at 80% 70%, rgba(232, 74, 116, 0.4) 1.2px, transparent 2px);
+  background-size: 80px 120px, 120px 160px, 90px 140px;
+  animation: rainMotion 0.8s linear infinite;
+}
+
+@keyframes rainMotion {
+  0% {
+    background-position: 0px 0px, 0px 0px, 0px 0px;
+  }
+  100% {
+    background-position: -20px 240px, 15px 320px, -10px 280px;
+  }
+}
+
+/* Glowing Pink Kawaii Aura */
+.glow-pink {
+  box-shadow: 0 0 25px rgba(232, 74, 116, 0.25), 0 0 50px rgba(244, 114, 182, 0.15);
+}
+
+.glow-pink-strong {
+  box-shadow: 0 0 30px rgba(232, 74, 116, 0.4), 0 0 60px rgba(236, 72, 153, 0.25);
+}
+
+/* Custom Cozy Pastel Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 240, 243, 0.6);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E84A74;
+  opacity: 0.6;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D43862;
+}
+
+/* Tactile Button Pulse */
+.btn-press {
+  transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-press:hover {
+  transform: translateY(-2px);
+}
+.btn-press:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+/* Animated Floating Steam */
+@keyframes steamPulse {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-12px) scale(1.1);
+    opacity: 0.4;
+  }
+}
+
+.animate-steam {
+  animation: steamPulse 3s ease-in-out infinite;
+}
+
+.animate-steam-delayed {
+  animation: steamPulse 3.5s ease-in-out infinite 0.7s;
+}
+
+/* Soft Shimmer across cards */
+.shimmer-pink {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-pink::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 80%
+  );
+  transform: rotate(30deg);
+  animation: shimmerSweep 6s infinite;
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-100%) rotate(30deg);
+  }
+  20%, 100% {
+    transform: translateX(100%) rotate(30deg);
+  }
+}
+
+/* Living Cat Dynamic Keyframes */
+@keyframes swishTail {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+
+.animate-swish-tail {
+  transform-origin: 135px 150px;
+  animation: swishTail 3s ease-in-out infinite;
+}
+
+@keyframes catBreathe {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.02, 1.03) translateY(-1px);
+  }
+}
+
+.animate-breathe {
+  transform-origin: bottom center;
+  animation: catBreathe 3.5s ease-in-out infinite;
+}
+
+@keyframes wiggleTailFast {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(18deg);
+  }
+}
+
+.animate-wiggle {
+  transform-origin: 135px 150px;
+  animation: wiggleTailFast 0.4s ease-in-out infinite;
+}
+
